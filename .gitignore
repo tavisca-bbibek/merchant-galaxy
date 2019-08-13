@@ -1,5 +1,4 @@
 /.gradle
-/gradle/wrapper/*.jar
 /.idea
 /.project
 /.classpath
