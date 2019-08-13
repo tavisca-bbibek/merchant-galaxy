@@ -4,7 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh script: '''
-                    echo "I am in build step"
+                    echo "Building the project."
+                    gradlew.bat build
                 ''',
             label: "Building Project"
             }
@@ -43,6 +44,12 @@ pipeline {
                     echo "I am Pubishing DockerImage ="
                 ''',
             label: "Publishing Docker Image"
+            }
+        }
+
+        post{
+            always{
+                deleteDir()
             }
         }
     }
