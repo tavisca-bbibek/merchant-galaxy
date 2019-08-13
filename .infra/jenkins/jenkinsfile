@@ -8,7 +8,7 @@ pipeline {
                     pwd
                     ls
                     chmod 777 gradlew
-                    gradlew build
+                    ./gradlew build
                 ''',
             label: "Building Project"
             }
