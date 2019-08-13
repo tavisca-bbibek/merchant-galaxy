@@ -47,11 +47,11 @@ pipeline {
             label: "Publishing Docker Image"
             }
         }
-
-        post{
-            always{
-                deleteDir()
-            }
+    }
+    post
+    {
+        always{
+            deleteDir()
         }
     }
 }
