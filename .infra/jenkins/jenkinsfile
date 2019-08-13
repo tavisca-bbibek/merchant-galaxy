@@ -5,7 +5,8 @@ pipeline {
             steps {
                 sh script: '''
                     echo "Building the project."
-                    gradlew.bat build
+                    chomod 777 gradlew
+                    gradlew build
                 ''',
             label: "Building Project"
             }
