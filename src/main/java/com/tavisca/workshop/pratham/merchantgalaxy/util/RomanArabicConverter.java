@@ -8,7 +8,7 @@ import java.util.Map;
 public class RomanArabicConverter {
 
     private static final Map<Character, Integer> romanLiteralToArabicMap = Collections.unmodifiableMap(
-            new HashMap<>() {{
+            new HashMap<Character, Integer>() {{
                 put('I', 1);
                 put('V', 5);
                 put('X', 10);
