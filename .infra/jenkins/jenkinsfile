@@ -5,6 +5,8 @@ pipeline {
             steps {
                 sh script: '''
                     echo "Building the project."
+                    pwd
+                    ls
                     chmod 777 gradlew
                     gradlew build
                 ''',
