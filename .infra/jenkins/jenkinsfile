@@ -15,7 +15,10 @@ pipeline {
         {
             steps {
                 sh script: '''
-                    echo "I am in Test step"
+                    echo "Running unit tests."
+                    chmod 777 gradlew
+                    ./gradlew test
+		
                 ''',
             label: "Running Unit Test Cases"
             }
