@@ -3,11 +3,11 @@ pipeline {
         stages {
             stage("Build") {
                 steps {
-                    bat label:'',script: '''
+                    bat label:'Building',
+                    script: '''
                         echo "Building the project."
                         gradlew.bat build
-                    ''',
-                label: "Building Project"
+                    '''
                 }
             }
     }
