@@ -1,5 +1,5 @@
 pipeline {
-    agent {'host-pc_lindows_java10'}
+    agent {label 'host-pc_lindows_java10'}
         stages {
         stage('Build') {
             steps {
@@ -8,43 +8,6 @@ pipeline {
                     gradlew.bat build
                 ''',
             label: "Building Project"
-            }
-        }
-        stage('Test')
-        {
-            steps {
-                bat script: '''
-                    echo "Running unit tests."
-                   gradlew.bat test
-                ''',
-            label: "Running Unit Test Cases"
-            }
-        }
-        stage('Static Code Analysis')
-        {
-            steps {
-                sh script: '''
-                    echo "I am in Sonarqube scan"
-                ''',
-            label: "Running Sonarqube Scan"
-            }
-        }
-        stage('Build DockerImage')
-        {
-            steps {
-                sh script: '''
-                    echo "I am Building DockerImage ="
-                ''',
-            label: "Building Docker Image"
-            }
-        }
-        stage('Publish DockerImage')
-        {
-            steps {
-                sh script: '''
-                    echo "I am Pubishing DockerImage ="
-                ''',
-            label: "Publishing Docker Image"
             }
         }
     }
