@@ -1,12 +1,11 @@
 pipeline {
-    agent any
+    agent {node {label 'host-pc_lindows_java10'}}
     stages {
         stage('Build') {
             steps {
-                sh script: '''
+                bat script: '''
                     echo "Building the project."
-                    chmod 777 gradlew
-                    ./gradlew build
+                    gradlew.bat build
                 ''',
             label: "Building Project"
             }
@@ -14,11 +13,9 @@ pipeline {
         stage('Test')
         {
             steps {
-                sh script: '''
+                bat script: '''
                     echo "Running unit tests."
-                    chmod 777 gradlew
-                    ./gradlew test
-		
+                   gradlew.bat test
                 ''',
             label: "Running Unit Test Cases"
             }
