@@ -1,6 +1,6 @@
 pipeline {
-    agent {node {label 'host-pc_lindows_java10'}}
-    stages {
+    agent {'host-pc_lindows_java10'}
+        stages {
         stage('Build') {
             steps {
                 bat script: '''
