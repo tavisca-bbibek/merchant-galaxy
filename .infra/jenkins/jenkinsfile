@@ -1,14 +1,14 @@
 pipeline {
-    agent {label 'host-pc_lindows_java10'}
+    agent {label "WindowsPC"}
         stages {
-        stage('Build') {
-            steps {
-                bat script: '''
-                    echo "Building the project."
-                    gradlew.bat build
-                ''',
-            label: "Building Project"
+            stage("Build") {
+                steps {
+                    bat script: '''
+                        echo "Building the project."
+                        gradlew.bat build
+                    ''',
+                label: "Building Project"
+                }
             }
-        }
     }
 }
