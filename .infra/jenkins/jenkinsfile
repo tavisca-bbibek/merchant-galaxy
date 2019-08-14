@@ -1,14 +1,50 @@
 pipeline {
-    agent {label "WindowsPC"}
+    agent any
         stages {
             stage("Build") {
                 steps {
-                    bat label:'Building',
-                    script: '''
+                    sh script: '''
                         echo "Building the project."
-                        gradlew.bat build
-                    '''
+                        gradlew build
+                    ''',
+                    label: 'Building Step'
                 }
             }
-    }
+            stage("Test") {
+                steps {
+                    sh script: '''
+                        echo "Testing the project."
+                        gradlew test
+                    ''',
+                    label: 'Test Step'
+                }
+            }
+
+            stage("Static Code Analysis") {
+                steps {
+                    sh script: '''
+                        echo "Running static code analysis."
+                    ''',
+                    label: 'Static Code Analysis Step'
+                }
+            }
+
+            stage("Creating Docker container file") {
+                steps {
+                    sh script: '''
+                        echo "Creating Docker Container."
+                    ''',
+                    label: 'Container creating Step'
+                }
+            }
+
+            stage("Publishing Docker container file") {
+                steps {
+                    sh script: '''
+                        echo "Publishing Docker Container."
+                    ''',
+                    label: 'Container publishing Step'
+                }
+            }
+        }
 }
