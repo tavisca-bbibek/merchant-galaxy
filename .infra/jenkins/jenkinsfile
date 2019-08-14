@@ -5,7 +5,7 @@ pipeline {
                 steps {
                     sh script: '''
                         echo "Building the project."
-                        gradlew build
+                        ./gradlew build
                     ''',
                     label: 'Building Step'
                 }
@@ -14,7 +14,7 @@ pipeline {
                 steps {
                     sh script: '''
                         echo "Testing the project."
-                        gradlew test
+                        ./gradlew test
                     ''',
                     label: 'Test Step'
                 }
